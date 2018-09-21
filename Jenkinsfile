@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        MVN_HOME = 'tool name: 'LocalMaven', type: 'maven''
+        MVN_HOME = '/opt/apache-maven-3.5.4'
     }
     stages {
         
