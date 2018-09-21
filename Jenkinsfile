@@ -1,32 +1,32 @@
 pipeline {
     agent any
-    tools {
-        maven LocalMaven
+    environment {
+        MVN_HOME = 'tool name: 'LocalMaven', type: 'maven''
     }
     stages {
         
         stage('validate-and-compile') {
             steps {
                 echo 'Validate and Compile the code'
-                sh "mvn clean validate compile"
+                sh "$MVN_HOME/bin/mvn clean validate compile"
             }
         }
         stage('code-testing') {
             steps {
                 echo 'Testing the code'
-                sh "mvn test"
+                sh "$MVN_HOME/bin/mvn test"
             }
         }
         stage('quality-check') {
             steps {
                 echo 'Code Quality Check'
-                sh "mvn clean checkstyle:checkstyle"
+                sh "$MVN_HOME/bin/mvn clean checkstyle:checkstyle"
             }
         }
         stage('build-packaage') {
             steps {
                 echo 'Building the war package'
-                sh "mvn clean package"
+                sh "$MVN_HOME/bin/mvn clean package"
             }
             post {
                 success {
