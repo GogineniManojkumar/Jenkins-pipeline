@@ -23,7 +23,11 @@ pipeline {
             steps {
                 echo 'Building the war package'
                 sh 'mvn clean package'
-                archiveArtifacts artifacts: '**/*.war', fingerprint: true
+            }
+            post {
+                success {
+                    archiveArtifacts artifacts: '**/*.war', fingerprint: true
+                }
             }
         }
     }
