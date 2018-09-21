@@ -1,7 +1,10 @@
 pipeline {
     agent any
+    environment {
+        MVN_HOME = "tool name: 'LocalMaven', type: 'maven'"
+    }
     stages {
-        def MVN_HOME = 'tool name: 'LocalMaven', type: 'maven''
+        
         stage('validate-and-compile') {
             steps {
                 echo 'Validate and Compile the code'
