@@ -39,7 +39,7 @@ pipeline {
         }
         stage('Docker image build'){
             steps {
-                sh "docker build . -t mywebapp:${env.BUILD_ID}"
+                sh "sudo docker build . -t mywebapp:${env.BUILD_ID}"
             }
         }
     }
