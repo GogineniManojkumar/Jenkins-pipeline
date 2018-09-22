@@ -37,9 +37,9 @@ pipeline {
                 }
             }
         }
-        stage('Run Docker image build job'){
+        stage('Docker image build'){
             steps {
-                build job: 'docker-deployment'
+                sh "docker build . -t mywebapp:${env.BUILD_ID}"
             }
         }
     }
