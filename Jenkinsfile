@@ -37,5 +37,10 @@ pipeline {
                 }
             }
         }
+        stage('Run Docker image build job'){
+            steps {
+                build job: 'docker-deployment'
+            }
+        }
     }
 }
