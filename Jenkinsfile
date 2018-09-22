@@ -37,10 +37,5 @@ pipeline {
                 }
             }
         }
-        stage('Build Docker image') {
-            steps {
-                sh "docker build . -t mywebapp:${env.BUILD_ID}"
-            }
-        }
     }
 }
